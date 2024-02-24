@@ -10,6 +10,6 @@ public class Constants
 {
     public const string CandidatesPath = "../../../../OnlineVotingSystem/Data/candidates.json";
     public const string UsersPath = "../../../../OnlineVotingSystem/Data/accounts.json";
-    public const string ApiKey = "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";
+    public const string ApiKey = "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";
     public const string Account = "as.abrorov@gmail.com";
 }

@@ -1,16 +1,24 @@
 [
   {
-    "Id": 0,
-    "Name": "Asrorbek",
+    "Id": 1,
+    "Name": "AsrorbekAdmin",
     "Email": "asrorbekabrorov5@gmail.com",
     "Password": "admin",
-    "HasVoted": false
+    "HasVoted": false,
+    "CreatedAt": "2024-02-24T13:00:56.2894205Z",
+    "UpdatedAt": "0001-01-01T00:00:00",
+    "DeletedAt": "0001-01-01T00:00:00",
+    "IsDeleted": false
   },
   {
     "Id": 1,
-    "Name": "Maxsus Shaxs",
+    "Name": "Asror",
     "Email": "as.abrorov2@gmail.com",
     "Password": "1234",
-    "HasVoted": true
+    "HasVoted": true,
+    "CreatedAt": "2024-02-24T13:01:15.3010124Z",
+    "UpdatedAt": "0001-01-01T00:00:00",
+    "DeletedAt": "0001-01-01T00:00:00",
+    "IsDeleted": false
   }
 ]

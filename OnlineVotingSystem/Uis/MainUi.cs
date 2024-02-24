@@ -52,7 +52,6 @@ public class MainUi
                 UserUi userUi = new UserUi(accountService);
                 var account = await userUi.Register();
 
-
                 if (account == null)
                 {
                     AnsiConsole.MarkupLine("[bold red]Invalid credentials.[/]");

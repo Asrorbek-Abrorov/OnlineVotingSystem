@@ -11,6 +11,7 @@ public class UserUi(AccountService accountService)
     {
         while (true)
         {
+            AnsiConsole.Clear();
             AnsiConsole.Write(
                 new FigletText("Smart Account System")
                     .Centered()
