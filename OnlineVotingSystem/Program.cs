@@ -1,12 +1,4 @@
-﻿using SendGrid;
-using SendGrid.Helpers.Mail;
-using System;
-using System.Threading.Tasks;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using Spectre.Console;
-using OnlineVotingSystem.Servises;
+﻿using OnlineVotingSystem.Servises;
 using OnlineVotingSystem.Uis;
 
 namespace OnlineVotingSystem;

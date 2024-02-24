@@ -1,10 +1,7 @@
-﻿using System;
-using System.Threading.Tasks;
-using SendGrid.Helpers.Mail;
-using SendGrid;
-using Spectre.Console;
-using OnlineVotingSystem.Entities;
+﻿using OnlineVotingSystem.Entities;
 using OnlineVotingSystem.Servises;
+using SendGrid;
+using SendGrid.Helpers.Mail;
 
 namespace OnlineVotingSystem;
 
@@ -13,7 +10,7 @@ public class UserService(AccountService accountService)
     public readonly AccountService accountService = accountService;
 
     public async Task<string> Send(string gmail, string name)
-        =>await Execute(gmail, name);
+        => await Execute(gmail, name);
 
     private static async Task<string> Execute(string gmail, string name)
     {
@@ -44,7 +41,7 @@ public class UserService(AccountService accountService)
 
         return new string(code);
     }
-    public Account GetAccount(string gmail) 
+    public Account GetAccount(string gmail)
         => accountService.GetAccountByGmail(gmail);
-    
+
 }

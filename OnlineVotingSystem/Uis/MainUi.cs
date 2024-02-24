@@ -2,11 +2,6 @@
 using OnlineVotingSystem.Servises;
 using OnlineVotingSystem.UI;
 using Spectre.Console;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlineVotingSystem.Uis;
 

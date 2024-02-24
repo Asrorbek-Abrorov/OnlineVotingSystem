@@ -1,7 +1,6 @@
 ﻿using OnlineVotingSystem.Entities;
 using OnlineVotingSystem.Servises;
 using Spectre.Console;
-using System.Xml.Linq;
 
 namespace OnlineVotingSystem.UI;
 
