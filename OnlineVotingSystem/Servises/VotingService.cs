@@ -1,7 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.VisualBasic;
+using Newtonsoft.Json;
 using OnlineVotingSystem.Entities;
 using OnlineVotingSystem.Interfaces;
-
+using OnlineVotingSystem.Configurations;
 namespace OnlineVotingSystem;
 
 public class VotingService : IVotingService
@@ -67,29 +68,29 @@ public class VotingService : IVotingService
     public void SaveCandidatesToFile()
     {
         var candidatesJson = JsonConvert.SerializeObject(candidates, Formatting.Indented);
-        File.WriteAllText("../../../../OnlineVotingSystem/Data/candidates.json", candidatesJson);
+        File.WriteAllText(Configurations.Constants.CandidatesPath, candidatesJson);
     }
 
     public void SaveVotersToFile()
     {
         var votersJson = JsonConvert.SerializeObject(accounts, Formatting.Indented);
-        File.WriteAllText("../../../../OnlineVotingSystem/Data/accounts.json", votersJson);
+        File.WriteAllText(Configurations.Constants.UsersPath, votersJson);
     }
 
     public void LoadCandidatesFromFile()
     {
-        if (File.Exists("../../../../OnlineVotingSystem/Data/candidates.json"))
+        if (File.Exists(Configurations.Constants.CandidatesPath))
         {
-            var candidatesJson = File.ReadAllText("../../../../OnlineVotingSystem/Data/candidates.json");
+            var candidatesJson = File.ReadAllText(Configurations.Constants.CandidatesPath);
             candidates = JsonConvert.DeserializeObject<List<Candidate>>(candidatesJson);
         }
     }
 
     public void LoadVotersFromFile()
     {
-        if (File.Exists("../../../../OnlineVotingSystem/Data/accounts.json"))
+        if (File.Exists(Configurations.Constants.UsersPath))
         {
-            var votersJson = File.ReadAllText("../../../../OnlineVotingSystem/Data/accounts.json");
+            var votersJson = File.ReadAllText(Configurations.Constants.UsersPath);
             accounts = JsonConvert.DeserializeObject<List<Account>>(votersJson);
         }
     }

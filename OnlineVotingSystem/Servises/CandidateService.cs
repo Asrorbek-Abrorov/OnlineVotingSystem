@@ -45,13 +45,13 @@ public class CandidateService : ICandidateService
     public void SaveCandidatesToFile()
     {
         var candidatesJson = JsonConvert.SerializeObject(candidates, Formatting.Indented);
-        File.WriteAllText("../../../../OnlineVotingSystem/Data/candidates.json", candidatesJson);
+        File.WriteAllText(Configurations.Constants.CandidatesPath, candidatesJson);
     }
     public void LoadCandidatesFromFile()
     {
-        if (File.Exists("../../../../OnlineVotingSystem/Data/candidates.json"))
+        if (File.Exists(Configurations.Constants.CandidatesPath))
         {
-            var candidatesJson = File.ReadAllText("../../../../OnlineVotingSystem/Data/candidates.json");
+            var candidatesJson = File.ReadAllText(Configurations.Constants.CandidatesPath);
             candidates = JsonConvert.DeserializeObject<List<Candidate>>(candidatesJson);
         }
     }
