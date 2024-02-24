@@ -11,6 +11,10 @@ public class UserUi(AccountService accountService)
     {
         while (true)
         {
+            AnsiConsole.Write(
+                new FigletText("Smart Account System")
+                    .Centered()
+                    .Color(Color.BlueViolet));
             var name = AnsiConsole.Ask<string>("[bold cyan]Enter your name:[/]");
 
             var gmail = AnsiConsole.Ask<string>("[bold cyan]Enter your Gmail address:[/]");

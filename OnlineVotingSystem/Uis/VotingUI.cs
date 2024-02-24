@@ -13,9 +13,12 @@ public class VotingUI(VotingService votingService, AccountUI accountUI)
         while (true)
         {
             AnsiConsole.Clear();
+            AnsiConsole.Write(
+                new FigletText("*** Voting *** System")
+                    .Centered()
+                    .Color(Color.Blue3_1));
             var option = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
-                    .Title("[bold cyan]===== Online Voting System =====[/]")
                     .AddChoices(
                         ["[bold green]Vote[/]", "[bold green]View Results[/]", "[bold green]Account Settings[/]", "[bold red]Exit[/]"]
                     )

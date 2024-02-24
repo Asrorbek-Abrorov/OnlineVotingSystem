@@ -11,9 +11,12 @@ public class AccountUI(AccountService accountService, UserService userService)
         while (true)
         {
             Console.Clear();
+            AnsiConsole.Write(
+                new FigletText("Account Management")
+                    .Centered()
+                    .Color(Color.Green3_1));
             var option = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
-                    .Title("[bold green]Account Management[/]")
                     .AddChoices(
                         new[]
                         {

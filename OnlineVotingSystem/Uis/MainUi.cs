@@ -16,17 +16,37 @@ public class MainUi
     private readonly VotingUI votinUi = new VotingUI(votingService, accountUI);
     public async Task Run()
     {
+        await AnsiConsole.Progress()
+            .StartAsync(async ctx =>
+            {
+                // Define tasks
+                var task1 = ctx.AddTask("[green]Starting application[/]");
+
+                while (!ctx.IsFinished)
+                {
+                    // Simulate some work
+                    await Task.Delay(250);
+
+                    // Increment
+                    task1.Increment(4.5);
+                }
+            });
         while (true)
         {
+            AnsiConsole.Clear();
+
+            AnsiConsole.Write(
+                new FigletText("Voting Application")
+                    .Centered()
+                    .Color(Color.Red));
+
             var start = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
-                .Title("===Start Application===")
                 .PageSize(5)
                 .AddChoices(["[green]Start[/]", "[red]Exit[/]"])
                 );
             if (start == "[green]Start[/]")
             {
-            
                 votingService.InitializeFromFiles();
                 Console.Clear();
                 UserUi userUi = new UserUi(accountService);
