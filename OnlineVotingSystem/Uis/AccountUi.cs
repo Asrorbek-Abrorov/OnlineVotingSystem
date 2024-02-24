@@ -14,33 +14,94 @@ public class AccountUI(AccountService accountService, UserService userService)
             Console.Clear();
             var option = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
-                    .Title("Account Management")
+                    .Title("[bold green]Account Management[/]")
                     .AddChoices(
-                    [
-                        "Change Name",
-                        "Change Password",
-                        "Change Email",
-                        "Exit"
-                    ]));
+                        new[]
+                        {
+                            "[bold cyan]View Details[/]",
+                            "[bold cyan]Change Name[/]",
+                            "[bold cyan]Change Password[/]",
+                            "[bold cyan]Change Email[/]",
+                            "[bold red]Exit[/]"
+                        }));
 
             switch (option)
             {
-                case "Change Name":
-                    ChangeName(account);
+                case "[bold cyan]View Details[/]":
+                    var password = AnsiConsole.Prompt(new TextPrompt<string>("[yellow]Enter Password:[/]")
+                        .Secret()
+                        .PromptStyle("red"));
+                    if (password == account.Password)
+                    {
+                        ViewDetails(account);
+                    }
+                    else
+                    {
+                        AnsiConsole.MarkupLine("[red]Wrong password[/]");
+                    }
                     break;
-                case "Change Password":
-                    ChangePassword(account);
+
+                case "[bold cyan]Change Name[/]":
+                    password = AnsiConsole.Prompt(new TextPrompt<string>("[yellow]Enter Password:[/]")
+                        .Secret()
+                        .PromptStyle("red"));
+
+                    if (password == account.Password)
+                    {
+                        ChangeName(account);
+                    }
+                    else
+                    {
+                        AnsiConsole.MarkupLine("[red]Wrong password[/]");
+                    }
+
                     break;
-                case "Change Email":
-                    await ChangeEmail(account);
+
+                case "[bold cyan]Change Password[/]":
+                    password = AnsiConsole.Prompt(new TextPrompt<string>("[yellow]Enter Password:[/]")
+                        .Secret()
+                        .PromptStyle("red"));
+
+                    if (password == account.Password)
+                    {
+                        ChangePassword(account);
+                    }
+                    else
+                    {
+                        AnsiConsole.MarkupLine("[red]Wrong password[/]");
+                    }
                     break;
-                case "Exit":
+
+                case "[bold cyan]Change Email[/]":
+                    password = AnsiConsole.Prompt(new TextPrompt<string>("[yellow]Enter Password:[/]")
+                        .Secret()
+                        .PromptStyle("red"));
+                    if (password == account.Password)
+                    {
+                        ChangeEmail(account).GetAwaiter().GetResult();
+                    }
+
+                    break;
+
+                case "[bold red]Exit[/]":
                     return;
             }
+
             Console.WriteLine();
-            AnsiConsole.MarkupLine("[bold green]Account changed successfully.[/]");
+            AnsiConsole.MarkupLine("[bold green]Press any key to continue...[/]");
             Console.ReadKey();
         }
+    }
+
+    private static void ViewDetails(Account account)
+    {
+        AnsiConsole.MarkupLine("");
+        AnsiConsole.MarkupLine($"[bold green]Name:[/] [cyan]{account.Name}[/]");
+        AnsiConsole.MarkupLine("");
+        AnsiConsole.MarkupLine($"[bold yellow]Password:[/] [magenta]{account.Password}[/]");
+        AnsiConsole.MarkupLine("");
+        AnsiConsole.MarkupLine($"[bold blue]Email:[/] [yellow]{account.Email}[/]");
+        AnsiConsole.MarkupLine("");
     }
 
     private void ChangeName(Account account)
