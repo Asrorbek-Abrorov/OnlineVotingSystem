@@ -1,7 +1,7 @@
 [
   {
     "Id": 1,
-    "Name": "AsrorbekAdmin",
+    "Name": "Asrorbek",
     "Email": "asrorbekabrorov5@gmail.com",
     "Password": "admin",
     "HasVoted": false,
@@ -11,12 +11,23 @@
     "IsDeleted": false
   },
   {
-    "Id": 1,
+    "Id": 2,
     "Name": "Asror",
     "Email": "as.abrorov2@gmail.com",
     "Password": "1234",
     "HasVoted": true,
     "CreatedAt": "2024-02-24T13:01:15.3010124Z",
+    "UpdatedAt": "0001-01-01T00:00:00",
+    "DeletedAt": "0001-01-01T00:00:00",
+    "IsDeleted": false
+  },
+  {
+    "Id": 8,
+    "Name": "lsdjfsdf",
+    "Email": "oripovjasurbek@gmail.com",
+    "Password": "1234",
+    "HasVoted": true,
+    "CreatedAt": "2024-02-24T13:06:10.4555898Z",
     "UpdatedAt": "0001-01-01T00:00:00",
     "DeletedAt": "0001-01-01T00:00:00",
     "IsDeleted": false
