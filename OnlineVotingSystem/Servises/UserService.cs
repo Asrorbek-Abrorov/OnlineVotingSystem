@@ -1,11 +1,12 @@
 ﻿using OnlineVotingSystem.Entities;
+using OnlineVotingSystem.Interfaces;
 using OnlineVotingSystem.Servises;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 
 namespace OnlineVotingSystem;
 
-public class UserService(AccountService accountService)
+public class UserService(AccountService accountService) : IUserService
 {
     public readonly AccountService accountService = accountService;
 

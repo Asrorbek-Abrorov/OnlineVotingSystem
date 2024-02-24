@@ -1,9 +1,10 @@
 ﻿using Newtonsoft.Json;
 using OnlineVotingSystem.Entities;
+using OnlineVotingSystem.Interfaces;
 
 namespace OnlineVotingSystem;
 
-public class VotingService
+public class VotingService : IVotingService
 {
     private List<Candidate> candidates;
     private List<Account> accounts;

@@ -1,9 +1,10 @@
 ﻿using Newtonsoft.Json;
 using OnlineVotingSystem.Entities;
+using OnlineVotingSystem.Interfaces;
 
 namespace OnlineVotingSystem.Servises;
 
-public class AccountService
+public class AccountService : IAccountService
 {
     private List<Account> accounts;
     private string accountsFilePath;
