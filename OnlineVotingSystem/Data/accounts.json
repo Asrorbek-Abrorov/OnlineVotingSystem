@@ -1,0 +1,16 @@
+[
+  {
+    "Id": 0,
+    "Name": "Asrorbek",
+    "Email": "asrorbekabrorov5@gmail.com",
+    "Password": "admin",
+    "HasVoted": false
+  },
+  {
+    "Id": 1,
+    "Name": "Maxsus Shaxs",
+    "Email": "as.abrorov2@gmail.com",
+    "Password": "1234",
+    "HasVoted": true
+  }
+]
