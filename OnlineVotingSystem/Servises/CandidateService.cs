@@ -1,6 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using EllipticCurve.Utils;
+using Newtonsoft.Json;
 using OnlineVotingSystem.Entities;
 using OnlineVotingSystem.Interfaces;
+using System.IO;
+using File = System.IO.File;
 
 namespace OnlineVotingSystem.Servises;
 
@@ -32,9 +35,20 @@ public class CandidateService : ICandidateService
         LoadCandidatesFromFile();
         return candidates.Find(c => c.Id == candidateId);
     }
+    public void UpdateCandidateName(int candidateId, string name)
+    {
+        LoadCandidatesFromFile();
+        Candidate candidate = GetCandidateById(candidateId);
+        if (candidate != null)
+        {
+            candidate.Name = name;
+        }
+        SaveCandidatesToFile();
+    }
 
     public void UpdateCandidateVotes(int candidateId, int votes)
     {
+        LoadCandidatesFromFile();
         Candidate candidate = GetCandidateById(candidateId);
         if (candidate != null)
         {

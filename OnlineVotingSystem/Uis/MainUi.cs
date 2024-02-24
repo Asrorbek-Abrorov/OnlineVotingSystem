@@ -64,11 +64,15 @@ public class MainUi
                     while (true)
                     {
                         AnsiConsole.Clear();
+                        AnsiConsole.Write(
+                            new FigletText("Welcome Admin")
+                                .Centered()
+                                .Color(Color.DarkCyan));
+
                         var option = AnsiConsole.Prompt(
                             new SelectionPrompt<string>()
-                                .Title("[bold cyan]===== Online Voting System =====[/]")
                                 .AddChoices(
-                                    ["[bold green]Add Candidate[/]", "[bold yellow]View Results[/]", "[bold yellow]View Voters[/]", "[bold red]Exit[/]"]
+                                    ["[bold green]Add Candidate[/]", "[bold green]Update Candidate[/]", "[bold yellow]View Results[/]", "[bold yellow]View Voters[/]", "[bold red]Exit[/]"]
                                 ));
 
                         switch (option)
@@ -78,6 +82,11 @@ public class MainUi
                                 candidateService.AddCandidate(candidateName);
                                 AnsiConsole.MarkupLine("[bold green]Candidate added successfully.[/]");
                                 break;
+
+                            case "[bold green]Update Candidate[/]":
+                                UpdateCandidate();
+                                break;
+
                             case "[bold yellow]View Results[/]":
                                 AnsiConsole.MarkupLine("[bold cyan]===== Voting Results =====[/]");
                                 List<Candidate> results = votingService.GetCandidates();
@@ -91,7 +100,7 @@ public class MainUi
                                 List<Account> voters = votingService.GetVoters();
                                 foreach (var voter in voters)
                                 {
-                                    AnsiConsole.MarkupLine("[bold white]======================================================[/]");
+                                    AnsiConsole.MarkupLine("[bold blue3_1]======================================================[/]");
                                     AnsiConsole.MarkupLine($"[bold yellow]Name[/]: {voter.Name}");
                                     AnsiConsole.MarkupLine($"[bold white]Email[/]: {voter.Email}");
                                     AnsiConsole.MarkupLine($"[bold yellow]Has Voted[/]: {voter.HasVoted}");
@@ -116,6 +125,25 @@ public class MainUi
             {
                 return;
             }
+        }
+    }
+
+    private void UpdateCandidate()
+    {
+        List<Candidate> candidates = candidateService.GetCandidates();
+        var candidate = AnsiConsole.Prompt(
+            new SelectionPrompt<Candidate>()
+                .Title("[bold cyan]Available candidates:[/]")
+                .PageSize(10)
+                .AddChoices(candidates)
+                .UseConverter(c => c.Name)
+        );
+
+        var newName = AnsiConsole.Ask<string>("Enter new name ", candidate.Name);
+        if (newName != null)
+        {
+            candidateService.UpdateCandidateName(candidate.Id, newName);
+            AnsiConsole.MarkupLine("[bold green]Name changed successfully.[/]");
         }
     }
 }

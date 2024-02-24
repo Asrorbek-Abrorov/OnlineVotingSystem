@@ -1,12 +1,20 @@
 [
   {
     "Id": 1,
-    "Name": "Qorbobo",
-    "Votes": 1
+    "Name": "Who are You?",
+    "Votes": 1,
+    "CreatedAt": "2024-02-24T08:56:07.3186249Z",
+    "UpdatedAt": "0001-01-01T00:00:00",
+    "DeletedAt": "0001-01-01T00:00:00",
+    "IsDeleted": false
   },
   {
     "Id": 2,
     "Name": "Who am I?",
-    "Votes": 0
+    "Votes": 0,
+    "CreatedAt": "2024-02-24T08:56:07.3186582Z",
+    "UpdatedAt": "0001-01-01T00:00:00",
+    "DeletedAt": "0001-01-01T00:00:00",
+    "IsDeleted": false
   }
 ]
